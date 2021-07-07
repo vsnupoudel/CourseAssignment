@@ -2,7 +2,7 @@ import numpy as np
 import json
 from doc2vec import LoadedModel
 
-with open('vectors_train2.json') as json_file:
+with open('vectors_train_500_4.json') as json_file:
     vectors_train = json.load(json_file)
 
 def distances(vector):
@@ -13,8 +13,8 @@ def distances(vector):
     return filename, distances
 
 if __name__=="__main__":
-    p=r'.\document-000-118454.out.000.png'
-    lm = LoadedModel('doc2vec_model_list_rn')
+    p=r'.\document-000-113188.in.000.png'
+    lm = LoadedModel('doc2vec_model_500_4')
     emb = lm.input_image_embedding(p)
     # print(emb)
     f,d = distances(emb)

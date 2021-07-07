@@ -9,7 +9,7 @@ app.config['UPLOAD_FOLDER'] = '.'
 app.config['MAX_CONTENT_PATH'] = 1024*1024*25
 
 def similar_file(input_filepath):
-    lm = LoadedModel('doc2vec_model_train')
+    lm = LoadedModel('doc2vec_model_500_4')
     emb = lm.input_image_embedding(input_filepath)
     filename, dist_vec = distances(emb)
     # print(template,'\n\n',dist_vec)
