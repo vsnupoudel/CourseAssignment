@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Upload file </title>
+    <style>
+        .file-upload-input {
+        margin: auto;
+        width: 60%;
+        border: 5px solid #FFFF00;
+        padding: 10px;
+        }
+</style>
+</head>
+</body>
+<h1>File Upload <span>With template found online</span></h1>
+
+<div class="file-upload-input">
+<form action = "/output" method = "POST"  enctype = "multipart/form-data">
+         <input type = "file" name = "file" id="file"/>
+         <input type = "submit" name= "submit" id="submit"/>
+</form>
+</div>
+
+</body>
+</html>
