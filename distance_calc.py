@@ -2,7 +2,7 @@ import numpy as np
 import json
 from doc2vec import LoadedModel
 
-with open('vectors_train.json') as json_file:
+with open('vectors_train2.json') as json_file:
     vectors_train = json.load(json_file)
 
 def distances(vector):
