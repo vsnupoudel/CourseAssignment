@@ -12,7 +12,7 @@ def similar_file(input_filepath):
     lm = LoadedModel('doc2vec_model_500_4')
     emb = lm.input_image_embedding(input_filepath)
     filename, dist_vec = distances(emb)
-    # print(template,'\n\n',dist_vec)
+    os.remove(input_filepath) #remove the file from application
     return filename
 
 @app.route('/')
@@ -33,7 +33,7 @@ def output():
             return render_template('output.html', data=[message])
         else:
             return render_template('output.html', data=[tem_file])
-        os.remove(f.filename)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
