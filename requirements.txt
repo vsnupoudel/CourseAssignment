@@ -1,4 +1,6 @@
-gensim
+gensim=4.0.1
 regex
 flask
 requests
+os
+numpy
