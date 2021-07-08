@@ -15,7 +15,6 @@ def similar_file(input_filepath):
     # print(template,'\n\n',dist_vec)
     return filename
 
-
 @app.route('/')
 @app.route('/index')
 def index():
@@ -28,11 +27,13 @@ def output():
         f.save(f.filename)
         try:
             tem_file = similar_file(f.filename)
+            # print(f.filename)
         except Exception as er:
             message = er
             return render_template('output.html', data=[message])
         else:
             return render_template('output.html', data=[tem_file])
+        os.remove(f.filename)
 
 if __name__ == '__main__':
     app.run(debug=True)

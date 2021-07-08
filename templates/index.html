@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <title> Upload file </title>
     <style>
-        .file-upload-input {
-        margin: auto;
-        width: 60%;
-        border: 5px solid #FFFF00;
-        padding: 10px;
+        .file-upload-input {  margin: auto;  width: 30%;
+        border: 5px solid #00FF00;   padding: 10px;
         }
+ input[type=submit], input[type=file] {
+  background-color: #4CAF50;  border: black;  color: white;
+  padding: 16px 32px;  text-decoration: none;
+  margin: 4px 2px;  cursor: pointer;
+}
 </style>
 </head>
 </body>
-<h1>File Upload <span>With template found online</span></h1>
+<h1>File Upload </h1>
 
 <div class="file-upload-input">
 <form action = "/output" method = "POST"  enctype = "multipart/form-data">
-         <input type = "file" name = "file" id="file"/>
-         <input type = "submit" name= "submit" id="submit"/>
+         <input type = "file" name = "file" id="file" />
+         <input type = "submit" name= "submit" id="submit" />
 </form>
 </div>
 
