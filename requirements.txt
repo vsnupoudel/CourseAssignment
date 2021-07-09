@@ -3,3 +3,4 @@ regex
 flask
 requests
 numpy
+python-Levenshtein

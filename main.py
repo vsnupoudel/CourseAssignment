@@ -27,13 +27,14 @@ def output():
         f.save(f.filename)
         try:
             tem_file = similar_file(f.filename)
-            # print(f.filename)
+            out_json = {'input_filename': f.filename,
+                        'output_filenme': tem_file}
         except Exception as er:
             message = er
             return render_template('output.html', data=[message])
         else:
-            return render_template('output.html', data=[tem_file])
+            return render_template('output.html', data=[out_json])
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
