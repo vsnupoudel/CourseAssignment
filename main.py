@@ -15,8 +15,8 @@ def similar_file(input_filepath):
     os.remove(input_filepath) #remove the file from application
     return filename
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET','POST'])
+@app.route('/index', methods=['GET','POST'])
 def index():
     return render_template('index.html')
 
