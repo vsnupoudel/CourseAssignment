@@ -13,11 +13,11 @@ class LoadedModel():
         document = json_output['ParsedResults'][0]['ParsedText'] #.lower()
         list_doc = document.split(' ')
 
-        with open('scanned_file.txt', "w") as text_file:  #Not stored in database
-            text_file.write(document)
+        # with open('scanned_file.txt', "w") as text_file:  #Not stored in database
+        #     text_file.write(document)
         # emb =  self.loaded_model.infer_vector()
         emb_file = self.loaded_model.infer_vector(doc_words = list_doc )
-        os.remove('scanned_file.txt')
+        # os.remove('scanned_file.txt')
         return emb_file
 
 
