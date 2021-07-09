@@ -10,6 +10,7 @@
 1. Two documents which have the most similar Doc2Vec embeddings are similar documents.
 
 ## TODO
+
 1. Add tags while training, return tags during prediction
 2. Predict multiple files at the same time, return a dictionary of outputs
 3. Find if there is a function in gensim for prediction, instead of manually calcuating distances
