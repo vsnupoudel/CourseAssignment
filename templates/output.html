@@ -4,15 +4,16 @@
  <style>
         .result {
         margin: auto;        width: 60%;
-        border: 5px solid #00FF00;        padding: 10px;
+        border: 5px solid #00FF00;  padding: 10px;
         }
 </style>
 <body>
 <h1>Output Filename that is most similar to input</h1>
 <div class="result">
-<h2>
-    {{ data[0] }} <br><br>
-
+<h2> {%  for dat in data %}
+    {{ dat }}
+    {%  endfor %}
+    <br><br>
 </h2>
 </div>
 </body>

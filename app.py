@@ -2,16 +2,22 @@ from flask import Flask, render_template, request
 from doc2vec import LoadedModel  # to load model
 from distance_calc import * # distances
 import os
-
+import json
+TRAINED_EMBEDDINGS = 'vectors_train_500_4.json'
+TRAINED_MODEL = 'doc2vec_model_500_4'
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '.'
 app.config['MAX_CONTENT_PATH'] = 1024*1024*25
 
+
+with open(TRAINED_EMBEDDINGS) as json_file:
+    vectors_train = json.load(json_file)
+
 def similar_file(input_filepath):
-    lm = LoadedModel('doc2vec_model_500_4')
+    lm = LoadedModel(TRAINED_MODEL)
     emb = lm.input_image_embedding(input_filepath)
-    filename, dist_vec = distances(emb)
+    filename, dist_vec = distances(emb, vectors_train)
     os.remove(input_filepath) #remove the file from application
     return filename
 
@@ -30,11 +36,10 @@ def output():
             out_json = {'input_filename': f.filename,
                         'output_filenme': tem_file}
         except Exception as er:
-            message = er
-            return render_template('output.html', data=[message])
+            return render_template('output.html', data=[er])
         else:
             return render_template('output.html', data=[out_json])
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(debug= True)
