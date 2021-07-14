@@ -36,7 +36,6 @@ def index():
 def output():
     if request.method == 'POST':
         f = request.files['file']
-        print(f)
         f.save(f.filename)
         try:
             tem_file = similar_file(f.filename)
