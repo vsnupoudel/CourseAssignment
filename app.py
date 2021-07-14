@@ -36,6 +36,7 @@ def index():
 def output():
     if request.method == 'POST':
         f = request.files['file']
+        print(f)
         f.save(f.filename)
         try:
             tem_file = similar_file(f.filename)
@@ -48,7 +49,5 @@ def output():
             return render_template('output.html', data=[out_json])
 
 
-
-
 if __name__ == '__main__':
-    app.run(debug= True)
+    app.run(host='0.0.0.0')
