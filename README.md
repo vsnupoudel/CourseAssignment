@@ -9,7 +9,7 @@
 ## Use Doc2vec algorithm after extracting text using OCR API.
 1. Two documents which have the most similar Doc2Vec embeddings are similar documents.
 ## External Endpoint for the GKE app
-[External endpoint Here](http://34.123.10.192/)
+[External endpoint Here](http://34.71.123.222/)
 ## TODO
 
 1. Add tags while training, return tags during prediction
