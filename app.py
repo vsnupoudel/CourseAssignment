@@ -10,14 +10,13 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '.'
 app.config['MAX_CONTENT_PATH'] = 1024*1024*25
 
-
 with open(TRAINED_EMBEDDINGS) as json_file:
     vectors_train = json.load(json_file)
 
 def similar_file(input_filepath):
-    lm = LoadedModel(TRAINED_MODEL)
-    emb = lm.input_image_embedding(input_filepath)
-    filename, dist_vec = distances(emb, vectors_train)
+    lm = LoadedModel(TRAINED_MODEL)  #read model, can be multiple(ensemble) models here later
+    emb = lm.input_image_embedding(input_filepath) # infer its embedding vector or length 500
+    filename = distances(emb, vectors_train) # calculate distance
     os.remove(input_filepath) #remove the file from application
     return filename
 
