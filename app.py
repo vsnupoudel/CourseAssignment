@@ -24,8 +24,8 @@ def clean_up_input_files(input_filepath):
         os.remove(input_filepath)  # remove the file from application
     except Exception as e:
         print('Error while deleting ', e)
-    else:
-        print('Input file//s deleted successfully')
+    # else:
+    #     print('Input files deleted successfully')
 
 @app.route('/', methods=['GET','POST'])
 @app.route('/index', methods=['GET','POST'])

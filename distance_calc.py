@@ -3,6 +3,8 @@ import numpy as np
 def distances(vector, vectors_train):
     armin = np.argmin( list(map(np.linalg.norm, np.array(list(vectors_train.values())) - vector)) )
     return list(vectors_train.keys())[armin]
+    # distances = dict( zip(  vectors_train , map(np.linalg.norm, vectors_train.values()) ))
+    # return min(distances, key=distances.get)
 
 def distances_old(vector, vectors_train):
     distances = { filename: np.linalg.norm(vector-vec, ord=2) for filename,
@@ -28,14 +30,17 @@ if __name__ == "__main__":
     print(vec.shape)
     print('=============================================')
     print( np.array( list(vectors_train.values())).shape )
+    # Method 1
+    print(distances(vec, vectors_train))
+    # This was used
+    # ag= np.argmin( list( map(np.linalg.norm, np.array( list(vectors_train.values()))-vec )))
+    #
+    # for i in map(np.linalg.norm, np.array( list(vectors_train.values()))-vec ):
+    #     print(i)
+    # print('####################### The minimum distance index ')
+    # print(ag)
 
-    ag= np.argmin( list( map(np.linalg.norm, np.array( list(vectors_train.values()))-vec )))
-
-    for i in map(np.linalg.norm, np.array( list(vectors_train.values()))-vec ):
-        print(i)
-    print(ag)
-
-    print( list(vectors_train.keys())[ag])
+    # print( list(vectors_train.keys())[ag])
 
 
 
