@@ -11,36 +11,36 @@ def distances_old(vector, vectors_train):
                                                              vec in vectors_train.items() }
     return min(distances, key=distances.get)
 
-
-if __name__ == "__main__":
-    import json
-    import numpy as np
-    from doc2vec import  LoadedModel
-    from ocrfunction import  *
-    TRAINED_EMBEDDINGS = 'vectors_train_500_4.json'
-    TRAINED_MODEL = 'doc2vec_model_500_4'
-
-    with open(TRAINED_EMBEDDINGS) as json_file:
-        vectors_train = json.load(json_file)
-
-    for i,j in enumerate( vectors_train.values()):
-        if i == 6:
-            vec = np.array(j)
-
-    print(vec.shape)
-    print('=============================================')
-    print( np.array( list(vectors_train.values())).shape )
-    # Method 1
-    print(distances(vec, vectors_train))
-    # This was used
-    # ag= np.argmin( list( map(np.linalg.norm, np.array( list(vectors_train.values()))-vec )))
-    #
-    # for i in map(np.linalg.norm, np.array( list(vectors_train.values()))-vec ):
-    #     print(i)
-    # print('####################### The minimum distance index ')
-    # print(ag)
-
-    # print( list(vectors_train.keys())[ag])
-
-
-
+#
+# if __name__ == "__main__":
+#     import json
+#     import numpy as np
+#     from doc2vec import  LoadedModel
+#     from ocrfunction import  *
+#     TRAINED_EMBEDDINGS = 'vectors_train_500_4.json'
+#     TRAINED_MODEL = 'doc2vec_model_500_4'
+#
+#     with open(TRAINED_EMBEDDINGS) as json_file:
+#         vectors_train = json.load(json_file)
+#
+#     for i,j in enumerate( vectors_train.values()):
+#         if i == 6:
+#             vec = np.array(j)
+#
+#     print(vec.shape)
+#     print('=============================================')
+#     print( np.array( list(vectors_train.values())).shape )
+#     # Method 1
+#     print(distances(vec, vectors_train))
+#     # This was used
+#     # ag= np.argmin( list( map(np.linalg.norm, np.array( list(vectors_train.values()))-vec )))
+#     #
+#     # for i in map(np.linalg.norm, np.array( list(vectors_train.values()))-vec ):
+#     #     print(i)
+#     # print('####################### The minimum distance index ')
+#     # print(ag)
+#
+#     # print( list(vectors_train.keys())[ag])
+#
+#
+#

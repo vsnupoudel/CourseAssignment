@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request
 from doc2vec import LoadedModel  # to load model
 from distance_calc import * # distances
-import os
-import json
+import os, json
 TRAINED_EMBEDDINGS = 'vectors_train_500_4.json'
 TRAINED_MODEL = 'doc2vec_model_500_4'
 
@@ -15,9 +14,9 @@ with open(TRAINED_EMBEDDINGS) as json_file:
 def similar_file(input_filepath):
     lm = LoadedModel(TRAINED_MODEL)  #read model, can be multiple(ensemble) models here later
     emb = lm.input_image_embedding(input_filepath) # infer its embedding vector or length 500
-    filename = distances(emb, vectors_train) # calculate distance
+    return distances(emb, vectors_train) # calculate distance
 
-    return filename
+    # return filename
 
 def clean_up_input_files(input_filepath):
     try:
