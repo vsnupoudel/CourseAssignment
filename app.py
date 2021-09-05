@@ -14,7 +14,9 @@ with open(TRAINED_EMBEDDINGS) as json_file:
 def similar_file(input_filepath):
     lm = LoadedModel(TRAINED_MODEL)  #read model, can be multiple(ensemble) models here later
     emb = lm.input_image_embedding(input_filepath) # infer its embedding vector or length 500
-    return distances(emb, vectors_train) # calculate distance
+    sims = lm.dv.most_similar([emb], topn=len(lm.dv))
+    return sims[0]
+    # return distances(emb, vectors_train) # calculate distance
 
     # return filename
 
@@ -22,7 +24,7 @@ def clean_up_input_files(input_filepath):
     try:
         os.remove(input_filepath)  # remove the file from application
     except Exception as e:
-        print('Error while deleting ', e)
+        print('Error while deleting: ', e)
     # else:
     #     print('Input files deleted successfully')
 
