@@ -1,3 +1,6 @@
+- Training Documents using Tags. 
+- Predicting both tags and embedding vectors of test document to classify them, and to find the nearest document in train set.
+
 # Trying 2 methods.
 ## Use Doc2vec algorithm after extracting text using OCR API.
 1. Two documents which have the most similar Doc2Vec embeddings are similar documents.
