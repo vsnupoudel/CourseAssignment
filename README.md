@@ -12,6 +12,6 @@
 [External endpoint Here](http://34.71.123.222/)
 ## TODO
 
-1. Add tags while training, return tags during prediction
+1. Add tags while training, return tags during prediction # Completed
 2. Predict multiple files at the same time, return a dictionary of outputs
 3. Find if there is a function in gensim for prediction, instead of manually calcuating distances
