@@ -37,7 +37,7 @@ def index():
 def output():
     if request.method == 'POST':
         f = request.files['file']
-        f.save(f.filename)
+        #f.save(f.filename)
         try:
             tem_file = similar_file(f.filename)
             out_json = {'input_filename': f.filename,
